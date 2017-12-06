@@ -1,4 +1,4 @@
-FROM alpine:3.6
+FROM alpine:3.7
 RUN apk add --no-cache redis && \
     sed -i 's/^daemonize yes/daemonize no/g' /etc/redis.conf && \
     sed -i 's/^logfile \/var\/log\/redis\/redis.log/logfile ""/g' /etc/redis.conf && \
