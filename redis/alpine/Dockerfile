@@ -1,8 +1,6 @@
-FROM alpine:3.8
+FROM alpine:3.9
 RUN apk add --no-cache redis && \
-    sed -i 's/^daemonize yes/daemonize no/g' /etc/redis.conf && \
-    sed -i 's/^logfile \/var\/log\/redis\/redis.log/logfile ""/g' /etc/redis.conf && \
-    sed -i 's/^pidfile \/var\/run\/redis\/redis.pid/pidfile ""/g' /etc/redis.conf && \
-    sed -i 's/bind 127.0.0.1/bind 0.0.0.0/g' /etc/redis.conf && \
+    sed -i 's/^logfile \/var\/log\/redis\/redis.log/logfile ""/' /etc/redis.conf && \
+    sed -i '/^bind/d' /etc/redis.conf && \
     sed -i '/^unixsocket/d' /etc/redis.conf
 CMD ["/usr/bin/redis-server", "/etc/redis.conf"]
