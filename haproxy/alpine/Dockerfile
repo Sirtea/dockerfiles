@@ -1,4 +1,4 @@
-FROM alpine:3.9
+FROM alpine:3.10
 RUN apk add --no-cache haproxy tini
 COPY haproxy.cfg /etc/haproxy/
 ENTRYPOINT ["/sbin/tini", "--"]
