@@ -1,4 +1,4 @@
-FROM alpine:3.9
+FROM alpine:3.10
 RUN apk add --no-cache nginx && \
     ln -s /dev/stdout /var/log/nginx/access.log && \
     ln -s /dev/stderr /var/log/nginx/error.log && \
