@@ -3,4 +3,5 @@ RUN apt update && \
     apt install -y --no-install-recommends tini cron && \
     rm -rf /var/lib/apt/lists/*
 ENTRYPOINT ["/usr/bin/tini", "--"]
-CMD ["/usr/sbin/cron", "-f"]
+COPY start.sh /
+CMD ["/start.sh"]
